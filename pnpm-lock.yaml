@@ -10,6 +10,7 @@ specifiers:
   '@types/fs-extra': ^9.0.13
   '@types/node': ^17.0.31
   chalk: ^4.1.2
+  cli-table3: ^0.6.2
   commander: ^9.2.0
   cross-env: ^7.0.3
   fs-extra: ^10.1.0
@@ -20,6 +21,7 @@ specifiers:
   rollup-plugin-copy: ^3.4.0
   rollup-plugin-terser: ^7.0.2
   rollup-plugin-typescript2: ^0.31.2
+  simple-git: ^3.7.1
   typescript: ^4.6.4
 
 devDependencies:
@@ -32,6 +34,7 @@ devDependencies:
   '@types/fs-extra': 9.0.13
   '@types/node': 17.0.31
   chalk: 4.1.2
+  cli-table3: 0.6.2
   commander: 9.2.0
   cross-env: 7.0.3
   fs-extra: 10.1.0
@@ -42,6 +45,7 @@ devDependencies:
   rollup-plugin-copy: 3.4.0
   rollup-plugin-terser: 7.0.2_rollup@2.71.1
   rollup-plugin-typescript2: 0.31.2_eaa702f32478549c21d9d1d9e08a1588
+  simple-git: 3.7.1
   typescript: 4.6.4
 
 packages:
@@ -2194,6 +2198,12 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
+  /@colors/colors/1.5.0:
+    resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
+    engines: {node: '>=0.1.90'}
+    dev: true
+    optional: true
+
   /@jimp/bmp/0.9.8_@jimp+custom@0.9.8:
     resolution: {integrity: sha512-CZYQPEC3iUBMuaGWrtIG+GKNl93q/PkdudrCKJR/B96dfNngsmoosEm3LuFgJHEcJIfvnJkNqKw74l+zEiqCbg==}
     peerDependencies:
@@ -2625,6 +2635,18 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.0.6
       '@jridgewell/sourcemap-codec': 1.4.11
+    dev: true
+
+  /@kwsites/file-exists/1.1.1:
+    resolution: {integrity: sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==}
+    dependencies:
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@kwsites/promise-deferred/1.1.1:
+    resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
     dev: true
 
   /@leejim/wxml-parser/0.1.5:
@@ -3728,6 +3750,15 @@ packages:
     engines: {node: '>= 4.0'}
     dependencies:
       source-map: 0.6.1
+    dev: true
+
+  /cli-table3/0.6.2:
+    resolution: {integrity: sha512-QyavHCaIC80cMivimWu4aWHilIpiDpfm3hGmqAmXVL1UsnbLuBSMd21hTX6VY4ZSDSM73ESLeF8TOYId3rBTbw==}
+    engines: {node: 10.* || >= 12.*}
+    dependencies:
+      string-width: 4.2.3
+    optionalDependencies:
+      '@colors/colors': 1.5.0
     dev: true
 
   /cliui/6.0.0:
@@ -6027,6 +6058,16 @@ packages:
   /shebang-regex/3.0.0:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
+    dev: true
+
+  /simple-git/3.7.1:
+    resolution: {integrity: sha512-+Osjtsumbtew2y9to0pOYjNzSIr4NkKGBg7Po5SUtjQhaJf2QBmiTX/9E9cv9rmc7oUiSGFIB9e7ys5ibnT9+A==}
+    dependencies:
+      '@kwsites/file-exists': 1.1.1
+      '@kwsites/promise-deferred': 1.1.1
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /slash/1.0.0:

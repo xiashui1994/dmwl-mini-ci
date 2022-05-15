@@ -1,11 +1,8 @@
-const { program } = require('commander')
-const path = require('path')
-const fs = require('fs')
-const fse = require('fs-extra')
-const chalk = require('chalk')
+import { program } from 'commander'
 const pkg = require('../../package.json')
 
-let outputPath = 'dmwlci.config.js'
+import { init, preview, upload } from '../index'
+import { commaSeparatedList } from "../utils/util"
 
 program
   .version(pkg.version, '-v, --version')
@@ -15,23 +12,22 @@ program
   .command('init')
   .option('-o, --output [path]', '配置文件输出路径')
   .description('生成配置文件')
-  .action((cmd: any) => {
-    const { output } = cmd
-    if (output && typeof output === 'string') {
-      outputPath = output
-      !outputPath.endsWith('.js') && (outputPath += '.js')
-    }
-    const targetFile = path.resolve(outputPath)
-    if (fs.existsSync(targetFile)) {
-      return console.log(chalk.red(`文件 ${targetFile} 已经创建`))
-    }
-    fse.copySync(path.join(__dirname, '../libs/dmwlci.config.js'), targetFile)
-    console.log(chalk.green(`文件 ${targetFile} 创建成功`))
-  })
+  .action((cmd: any) => { init(cmd) })
 
-// 没有任何命令的时候输出使用帮助
-if (!process.argv.slice(2).length) {
-  program.outputHelp()
-}
+program
+  .command('preview')
+  .option('-c, --config [path]', '配置文件路径')
+  .option('-e, --env [env]', '运行环境')
+  .option('-p, --platforms [names]', '自定义编译平台，多个逗号隔开', commaSeparatedList)
+  .description('预览')
+  .action((cmd: any) => { preview(cmd) })
+
+program
+  .command('upload')
+  .option('-c, --config [path]', '配置文件路径')
+  .option('-e, --env [env]', '运行环境')
+  .option('-p, --platforms [names]', '自定义编译平台，多个逗号隔开', commaSeparatedList)
+  .description('上传')
+  .action((cmd: any) => { upload(cmd) })
 
 program.parse(process.argv)

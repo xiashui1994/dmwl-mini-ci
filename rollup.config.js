@@ -69,15 +69,6 @@ const cli = {
   plugins: [
     // rollup 编译 typescript
     rollupTypescript(),
-    // babel 配置
-    babel({
-      // 编译库使用
-      babelHelpers: 'runtime',
-      // 只转换源代码，不转换外部依赖
-      exclude: 'node_modules/**',
-      // babel 默认不支持 ts 需要手动添加
-      extensions: [...DEFAULT_EXTENSIONS, '.ts']
-    }),
     copy({
       targets: [
         {
