@@ -1,6 +1,7 @@
 import { Project, upload, preview } from 'miniprogram-ci'
 import { Options } from './type'
 import chalk from 'chalk'
+import { IPreviewResult } from 'miniprogram-ci/dist/@types/ci/preview'
 
 export default class Ci {
   public options: Options
@@ -16,7 +17,7 @@ export default class Ci {
   /**
    * 预览
    */
-  public async preview() {
+  public async preview(): Promise<void | IPreviewResult> {
     if (this.project) {
       try {
         const result = await preview({
@@ -33,7 +34,7 @@ export default class Ci {
   /**
    * 上传
    */
-  public async upload() {
+  public async upload(): Promise<void | IPreviewResult> {
     if (this.project) {
       try {
         const result = await upload({

@@ -1,7 +1,7 @@
 {
   "name": "dmwl-mini-ci",
   "version": "1.0.0",
-  "description": "",
+  "description": "微信小程序、小游戏CI发布工具",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "umd": "./dist/index.umd.js",
@@ -16,8 +16,17 @@
     "build:types": "npm run clean:dist && tsc -b ./tsconfig.types.json",
     "lint:format": "prettier --write ."
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiashui1994/dmwl-mini-ci"
+  },
+  "keywords": [
+    "miniprogram-ci",
+    "miniprogram",
+    "ci",
+    "mini-ci"
+  ],
+  "author": "xiashui",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.17.10",
