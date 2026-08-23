@@ -1,11 +1,11 @@
-import { Project, upload, preview } from 'miniprogram-ci'
-import { Options } from './type'
+import type { IPreviewResult } from 'miniprogram-ci/dist/@types/ci/preview'
+import type { Options } from './type'
 import chalk from 'chalk'
-import { IPreviewResult } from 'miniprogram-ci/dist/@types/ci/preview'
+import { preview, Project, upload } from 'miniprogram-ci'
 
 export default class Ci {
   public options: Options
-  public project: Project | undefined;
+  public project: Project | undefined
 
   constructor(options: Options) {
     this.options = options
@@ -22,11 +22,12 @@ export default class Ci {
       try {
         const result = await preview({
           project: this.project,
-          ...this.options.preview
+          ...this.options.preview,
         })
         return result
-      } catch (error: any) {
-        return console.log(chalk.red(error.message))
+      }
+      catch (error: any) {
+        console.error(chalk.red(error.message))
       }
     }
   }
@@ -39,11 +40,12 @@ export default class Ci {
       try {
         const result = await upload({
           project: this.project,
-          ...this.options.upload
+          ...this.options.upload,
         })
         return result
-      } catch (error: any) {
-        return console.log(chalk.red(error.message))
+      }
+      catch (error: any) {
+        console.error(chalk.red(error.message))
       }
     }
   }

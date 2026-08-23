@@ -1,8 +1,8 @@
+import process from 'node:process'
 import { program } from 'commander'
-const pkg = require('../../package.json')
-
+import pkg from '../../package.json'
 import { init, preview, upload } from '../index'
-import { commaSeparatedList } from "../utils/util"
+import { commaSeparatedList } from '../utils/util'
 
 program
   .version(pkg.version, '-v, --version')
